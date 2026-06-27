@@ -16,5 +16,20 @@ Is the information correct? [Y/n] y
 To check if users are created : cat /etc/passwd 
 if we create any user, the user will be added to /etc/passwd file, so we can see there
 
+Creating a group:
+Ex: sudo groupadd g1
+
 Adding user to group:
-Ex: 
+Ex: sudo useradd -aG g1 ram
+# -a: for append, G: for adding user to group (mandatory)
+Verify: groups ram
+
+Grant admin access to that user:
+sudo usermod -aG sudo ram
+
+Switch to that user:
+su - ram
+
+
+
+
