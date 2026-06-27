@@ -29,6 +29,11 @@ sudo usermod -aG sudo ram
 
 Switch to that user:
 su - ram
+Test:
+sudo apt update
+now enter password you gave during user creation
+
+
 
 
 
