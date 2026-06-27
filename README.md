@@ -8,10 +8,10 @@ PROJECT OVERVIEW
 
 TOOLS USED
 ----------
-  AWS EC2
-  UBUNTU
-  NGINX
-  GIT
+  AWS EC2,
+  UBUNTU,
+  NGINX,
+  GIT.
 
 SKILLS LEARNED
 --------------
@@ -21,7 +21,7 @@ SKILLS LEARNED
   File Permissions,
   Firewall,
   Cron Jobs,
-  Log Analysis,
+  Log Analysis.
 
 PROJECT ARCHITECTURE
 --------------------
