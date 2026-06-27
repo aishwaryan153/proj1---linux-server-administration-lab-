@@ -23,6 +23,11 @@ SKILLS LEARNED
   Cron Jobs,
   Log Analysis.
 
+WHAT I DID
+----------
+1. launched an ubuntu instance and connected to it
+2. performed linux user and group management commands
+3. 
 PROJECT ARCHITECTURE
 --------------------
 
