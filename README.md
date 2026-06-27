@@ -14,13 +14,14 @@ TOOLS USED
   GIT
 
 SKILLS LEARNED
-  Linux commands
-  User Management
-  SSH
-  File Permissions
-  Firewall
-  Cron Jobs
-  Log Analysis
+--------------
+  Linux commands,
+  User Management,
+  SSH,
+  File Permissions,
+  Firewall,
+  Cron Jobs,
+  Log Analysis,
 
 PROJECT ARCHITECTURE
 --------------------
