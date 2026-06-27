@@ -14,7 +14,6 @@ TOOLS USED
   GIT
 
 SKILLS LEARNED
---------------
   Linux commands
   User Management
   SSH
