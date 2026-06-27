@@ -47,5 +47,28 @@ LINUX COMMANDS
         ubuntu@ip-172-31-40-238:~/devops-lab$ cat new2
         hiiiii
 
-9. mv: 
+9. mv: to rename a file, to move a file location, to rename and move at same time
+   Rename:  ubuntu@ip-172-31-40-238:~/devops-lab$ mv new2 new1
+            ubuntu@ip-172-31-40-238:~/devops-lab$ ls
+            new  new1
+   Move a file: mv file.txt /home/user/Documents/
 
+10. cat: to show contents of the file
+    Ex: cat filename
+
+11. less: open and read large file page by page
+   Ex: less filename
+
+12. grep : to find contents of a file
+   Ex:   ubuntu@ip-172-31-40-238:~/devops-lab/d2$ grep zs file1
+         zs
+         ubuntu@ip-172-31-40-238:~/devops-lab/d2$ cat file1
+         d
+         e
+         r
+         zs
+         r
+
+13. Find: to find a particular file in a path
+    Ex:  ubuntu@ip-172-31-40-238:~/devops-lab$ find /home/ubuntu/devops-lab -name "new"
+         /home/ubuntu/devops-lab/new
