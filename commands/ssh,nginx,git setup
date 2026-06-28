@@ -1,0 +1,41 @@
+Open terminal in local laptop:
+STEP 1: Generate ssh key in local terminal
+command: ssh-keygen
+press enter,then yes, now key is generate
+
+check if key is generated:
+ls ~/.ssh
+we can see 2 keys( ex: id_ed2551, id_ed2551.pub OR id_rsa, id_rsa.pub)
+
+now we need to copy the content of pub file and paste it on the aws ec2 
+#if your in other user exit, give exit command, now give whoami and reply should be ubuntu in aws ec2
+
+command on local terminal: cat ~/.ssh/id_ed2551.pub
+need to copy that nd paste on aws ec2
+
+run this command on ec2:
+mkdir ~/.ssh
+nano ~/.ssh/authorized_keys
+
+then paste that key( if u have any other key, remove it)
+
+then Ctrl + O
+then enter
+then Ctrl + X
+
+See if the key got saved: cat ~/.ssh/authorized_keys
+
+now go to local terminal, try to login:ssh -i ~/.ssh/id_ed25519 ubuntu@18.227.77.184 (give public ip of server)
+You can login now, now in local terminal install git, nginx
+
+sudo apt update -y
+sudo apt install git -y
+sudo apt install nginx -y
+
+on local terminal:
+now go to cd /var/www/html
+sudo vim index.html
+enter code
+use public ip and see on browser
+
+
