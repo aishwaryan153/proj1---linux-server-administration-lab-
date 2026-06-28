@@ -1,0 +1,31 @@
+Networking:
+You use these when:
+Server cannot connect to internet
+Website is not reachable
+SSH not working
+DNS issues
+Port/service troubleshooting
+
+1. Command: ip a
+    this shows all the network interfaces and ip like private ip, loopback addresses, network interface names
+    this is for knowing that server has ip and it can also help us solve connectivity issues
+
+2. Command: ip route
+    this shows how server sends traffic to other routes
+    this is for knowing that internet routing is set correctly and also help us solve "no internet" issues
+
+3. Command: ss tulpn
+    this is to show all services listening on port
+    this is for knowing is http, https, ssh are running or no
+
+4. Command: ping google.com
+    this sends packets to google to check response time
+    this conforms internet is working and detects network failure
+    press Ctrl+C to stop
+
+5. Command: nslookup google.com
+    this confirms dns is working
+
+6. Command: sudo apt install dnsutils
+    this installs dns tools like nslookup, dig
+
