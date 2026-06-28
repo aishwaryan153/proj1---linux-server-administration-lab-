@@ -29,3 +29,19 @@ Port/service troubleshooting
 6. Command: sudo apt install dnsutils
     this installs dns tools like nslookup, dig
 
+LOGS:
+1. AUTHENTICATION LOGS
+This to check ssh login attempts, sudo usage, user authentication, password failur, system access attempts
+Command: sudo tail -f /var/log/auth.log
+
+2. NGINX ACCESS LOGS
+This checks who visited the website, which pages they opened, users IP addresses, browser info
+Command: sudo tail -f /var/log/nginx/access.log
+
+One-line summary
+auth.log → tracks logins & security
+nginx access.log → tracks website traffic
+
+3. NGINX ERROR LOGS
+Command: sudo tail -f /var/log/nginx/error.log
+it tells any errors occured in real time
