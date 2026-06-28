@@ -1,0 +1,47 @@
+User	Permission
+
+CHMOD: Changing file permissions
+7 (owner)	rwx
+5 (group)	r-x
+5 (others)	r-x
+
+owner|group|others
+
+r --> read (open the file) | w --> write (edit the file) | x --> execute (run the file)
+
+Create a file: touch f1
+See permission of that file: ls -al f1
+Ex:
+ram@ip-172-31-40-238:~$ touch new
+ram@ip-172-31-40-238:~$ ls -al new
+-rw-rw-r-- 1 ram ram 0 Jun 27 23:55 new
+ram@ip-172-31-40-238:~$ chmod 755 new
+ram@ip-172-31-40-238:~$ ls -al new
+-rwxr-xr-x 1 ram ram 0 Jun 27 23:55 new
+ram@ip-172-31-40-238:~$ chmod 575 new
+ram@ip-172-31-40-238:~$ ls -al new
+-r-xrwxr-x 1 ram ram 0 Jun 27 23:55 new
+
+CHOWN: changing owner of file
+Syntax:
+sudo chown user:group filename
+Ex:
+sudo chown ram:g1 new
+Test:
+ram@ip-172-31-40-238:~$ ls -l new
+-r-xrwxr-x 1 ram g1 0 Jun 27 23:55 new
+
+CHGRP:
+
+
+
+
+
+
+
+
+
+
+
+
+
