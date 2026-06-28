@@ -1,0 +1,30 @@
+Cron job 
+
+1. open cron tab and we need to edit that file so thats why -e
+Command: crontab -e
+file opens
+
+2. add thisline at botton:
+* * * * * echo "Cron Working - $(date)" >> /home/ubuntu/cron.log
+
+What it means
+* * * * *
+│ │ │ │ │
+│ │ │ │ └── Day of week
+│ │ │ └──── Month
+│ │ └────── Day of month
+│ └──────── Hour
+└────────── Minute
+
+* * * * * means every minute.
+
+Save and exit
+In nano:
+Ctrl + O → Save
+Press Enter
+Ctrl + X → Exit
+
+check after a minute:
+cat /home/ubuntu/cron.log
+we can see the cron details
+
