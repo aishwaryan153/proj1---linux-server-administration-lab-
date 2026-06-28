@@ -31,8 +31,13 @@ Test:
 ram@ip-172-31-40-238:~$ ls -l new
 -r-xrwxr-x 1 ram g1 0 Jun 27 23:55 new
 
-CHGRP:
-
+CHGRP: change group of file
+Create group:
+ram@ip-172-31-40-238:~$ sudo groupadd g2
+Change group:
+ram@ip-172-31-40-238:~$ sudo chgrp g2 new
+ram@ip-172-31-40-238:~$ ls -l new
+-r-xrwxr-x 1 ram g2 0 Jun 27 23:55 new
 
 
 
