@@ -1,0 +1,24 @@
+when we create ec2 we give secrity groups ( turnon the traffic we need like ssh 22, http 80, https 443)
+so no need to the UFW ( inside linux seperately) 
+This UFW is like an optional second layer and it is disabled by aws setups by default as we already give security groups to server
+
+AWS Security Group is the PRIMARY firewall
+UFW is SECONDARY (inside Linux)
+
+You can allow both but sometimes, few requests aws can allow but ufw may not allow or ufw may allow and aws may not allow. so better to always keep aws securoty group on
+
+if you want to allow ufw then code:
+
+Check:
+sudo ufw status
+
+Allow:
+sudo ufw allow ssh
+sudo ufw allow 80
+sudo ufw allow 443
+
+Enable:
+sudo ufw enable
+
+Verify:
+sudo ufw status
