@@ -43,7 +43,6 @@ A: It means process is completed but parent process did not clean the process. t
    handle:
    restart parent process or kill parent PID
 
-
 10. Suppose users report that the server is slow. What would you do first?
 A: When users report server slowness, I first confirm whether the issue is global or specific. Then I check system health using top, uptime, free -h, and df -h 
    to analyze CPU, memory, load average, and disk usage.
