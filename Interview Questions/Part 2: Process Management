@@ -1,0 +1,6 @@
+1. What is this command for: ps aux
+A: this is to display all the running processes in the system
+
+2. Diff between ps and top
+A: ps --> static output, snapshots of processes
+   top --> for continuous updates
