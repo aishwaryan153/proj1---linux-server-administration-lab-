@@ -1,6 +1,48 @@
-1. What is this command for: ps aux
+1. What is this command for: ps aux, how do you use it in production.
 A: this is to display all the running processes in the system
+   in production, we use it go identify the resource heavy or failing services
 
-2. Diff between ps and top
+2. Diff between ps and top, 
 A: ps --> static output, snapshots of processes
-   top --> for continuous updates
+   top --> for continuous updates, real time monitoring
+
+3. what is top,htop, why is it better? how do you use it in production.
+A: top --> default tool, no need to install, basic tool
+   htop --> interactive tool, need to install, enhanced UI
+   Production usage:
+   top --> to check basic SSH emergency check
+   htop --> for deep investigation.
+
+4. what is PID?
+A: every process that we have in linux has a pid.
+   when we give top or htop we can get the pid for each processes.
+   to kill a particular process: kill PID
+
+5. how to handle a runaway process consuming 100% CPU or system is freezing intermitently?
+A: identify the process: top
+   drill down: ps aux --sort=-%cpu |head
+   check property details: ps -fp <PID>
+   check logs: tail -f /var/log/syslog
+   restart service or kill process
+
+6. diff between kill and kill -9
+A: kill --> smoothly removes the process after cleanup is complete
+   kill -9 --> abruptly immediately kills the process
+
+7. server is slow but cpu is normal what do you check?
+A: check memory: free -h
+   check disk: df -h
+   check processes: top, ps aux --sort=-%mem
+   check logs: tail -f /var/log/syslog
+
+8. How do you find which process is using the most memory?
+A: top / htop/ps aux
+
+9. what is a zombie process? how to handle?
+A: It means process is completed but parent process did not clean the process. to check: ps aux | grep Z
+   handle:
+   restart parent process or kill parent PID
+
+
+10. Suppose users report that the server is slow. What would you do first?
+A: 
