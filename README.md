@@ -25,11 +25,6 @@ SKILLS LEARNED
 
 WHAT I DID
 ----------
-1. launched an ubuntu instance and connected to it
-2. performed linux user and group management commands
-3. 
-PROJECT ARCHITECTURE
---------------------
-
-
-HOW TO REPRODUCE THE PROJECT
+Provisioned and administered ubuntu ec2 on aws,configured SSH key based authentication, created users and groups, used nginx web server to run the website,
+added UFW (Uncomplicated firewall), added cron jobs, log monitoring. Performed process management (top,htop,ps aux,..), service management (systemctl status ,....), network diagnosis (ip a, tulpn,ping,...), DNS resolution (nslookup,...), monitored application logs (var/log/auth.log), nginx logs( var/log/nginx/access.log)
+  
