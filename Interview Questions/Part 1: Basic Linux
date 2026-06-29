@@ -1,0 +1,40 @@
+1. What is linux
+A: Its an open source OS. it is widely used forserver,aws resources and containers as its highly secure, reliable and customizable
+
+2. Diff between linux and windows
+A:  --> Linux is open source, windows is propreitory
+    --> Linux is secure, windows is more malware target
+    --> linux is command line, windows is GUI
+    --> linux preferred for servers, windows preferred for desktops
+
+3. What is Linux distribution?
+A: It is a complete Linux OS built around the linus kernel. it includes kernel, package manager, utilities
+
+4. pwd command, ls?
+A: pwd --> gives present working directory
+  ls --> list of files and folders in current directory
+
+5. how to create a directory?
+A: pwd 
+   for nested directroy (many folders) : mkdir -p /docs/folder1/file1
+
+6. how to remove a directory?
+A: to remove a directory: rmdir foldername 
+   to remove a directory with files: rm -r foldername
+   to remove a directory permenently : rm -rf foldername
+
+7. Diff between rm, rmdir,cd?
+A: rm --> removes files and directories
+   rmdir --> removes only empty directories
+   cd --> changes directory 
+8. What is sudo and root?
+A: sudo means super user do, and root is a sudo user means it has no restrictions and can perform all tasks
+
+9. explain cp, mv?
+A: cp --> copies file content from one to other : cp file1 file2
+   mv --> to rename and also move file: rename: mv old.txt new.txt, move: mv file.txt Documents/
+
+10. How to check disk space, folder size:
+A: df -h ( -h for human readable format)
+   du -sh folder1 
+ 
