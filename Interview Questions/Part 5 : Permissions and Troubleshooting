@@ -51,15 +51,65 @@ A: who OR w OR last
 PRODUCTION TROUBLESHOOTING
 
 1. A user cannot edit a file, how do you troubleshoot?
-A:
+A: check ownership: ls -l file.txt (ls only gives file name, -l gives detailed info of file like permissions)
+   to get more data about permissions of the file(more than -l) : stat file.txt
+   check user's groups: groups username
+   to see additional permissions (ACL's): getfact file_name.txt
+   modify permissions if necessary
 
 2. Application says permission denied
-A:
+A: check ownership : ls -l
+   check if its missing execute permissions
 
 3. script works manually but fails in cron
-A:
+A: check execute permission : chmod +x file.txt
+   write absolute paths:
+      wrong: python backup.py
+      right: /usr/bin/python3 /home/ubuntu/backup.py (write like this)
 
 4. User cannot SSH into server
-A:
+A: check ssh status : systemctl status ssh
+   check permissions: ls -l ~/.ssh
+   correct permissions: chmod 600 ~/.ssh
+   check logs: sudo tail -f /var/log/auth.log
 
-5. 
+5. Developer cannot deploy application
+A: check ownership: ls -ld /var/www/hmtl (-ld means show details of folder or directory not the files inside it)
+   check permission: ls -l /var/www/html
+
+6. User suddenly lost access to shared folder
+A: check permission: ls -ld /shared
+   check ownership : stat shared
+   check groups: groups shared
+   check ACL : getfact /shared
+
+7. Permission denied after deployment
+A: new deployment changed ownership or application running under another user.
+
+8. Application cannot write logs
+A: check: ls -ls /var/log/app
+   check :df -h /var/log/app
+
+9. Developer accidently executed chmod -R 777 /
+A: restore permission from backup or rebuild server if the permission cannot be trusted anymore
+
+10. A file was accidently deleted, can linux recover it?
+A: Normally linux doesnt provide recycle bin for deleted files but we can restore from backup or snapshots.
+
+11. what is umask?
+A: It defines the default permissions assigned to newly created files and directories.
+
+12. what is ACL's?
+A: these are special permissions that we can specify to user or group. this gives more options compared to standard rwx permissions
+
+13. what is suid?
+A: SUID allows a file to execute with the permissions of its owner.
+   You will notice an s instead of x in the owner's execute position.
+
+14. what is SGID?
+A: On directories, SGID ensures that newly created files inherit the directory's group instead of the creator's primary group.
+   Useful for shared project directories.
+
+15. what is sticky bit?
+A: Commonly used on shared directories like /tmp.
+
