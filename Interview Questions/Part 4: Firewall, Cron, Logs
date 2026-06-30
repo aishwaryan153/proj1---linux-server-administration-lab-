@@ -82,29 +82,35 @@ A:  * * * * *
       0 2 * * * tar -czf backup.tar /home
 
 4. Production scenario: cron job not running
-A: 
+A: check service: systemctl status cron
+   check logs: grep CRON /var/log/syslog
+   check cron path
 
 5. Common cron mistakes in production
-A:
+A: wrong path, missing permissions
 
 6. How do you debug cron failures?
-A:
+A: * * * * * /path/script.sh >> /tmp/cron.log 2>&1
 
 7. Diff between cron VS systemd timer?
-A:
+A: cron --> older, simple scheduling, no dependency control
+   systemd timer --> new, advance scheduling, supports dependencies
 
 8. Firewall blocked production traffic. How to fix?
-A:
+A: check ufw, check security group, open required port
 
 9. Logs are not generating, why?
-A:
+A: check disk space: du -sh, check if service running, log rotation misconfiguration
 
 10. cron job worked yesteray but not today, why?
-A:
+A: service status? script path change? permission change?
 
 11. User cannot access the service after deployment
-A:
+A: check service status, check firewall, port, logs
 
 12. Security incident: Unknown traffic on server
-A:
+A: netstat -tulpn
+   ss -tulpn
+   last
+   auth.log
 
