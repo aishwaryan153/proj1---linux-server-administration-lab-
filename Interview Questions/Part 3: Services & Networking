@@ -1,0 +1,96 @@
+SERVICES
+1. What is systemd and why is it used?
+A: its used to start and manage services and also boot processes.
+
+2. How do you check if a service is running in production?
+A: systemctl status service_name
+
+3. How do you restart a failed service in production?
+A: systemctl restart service_name
+
+4. A service is failing to start, what do you do?
+A: check service status: systemctl status service_name
+   check logs: journalctl -u app -xe
+   check config file: nginx -t
+   check port conflict: ss -tulpn | grep 80
+
+5. Difference between start, enable, reload, restart?
+A: start --> starts the service
+   enable --> start at boot
+   reload --> refresh without downtime
+   restart --> stop+start
+
+6. how do you create a custom systemd service?
+A: Example:
+     Bash:
+       sudo nano /etc/systemd/system/myapp.service
+     Inside file:
+        [Unit]
+        Description=My App Service
+        After=network.target
+        
+        [Service]
+        ExecStart=/usr/bin/python3 /home/ubuntu/app.py
+        Restart=always
+        User=ubuntu
+        
+        [Install]
+        WantedBy=multi-user.target
+    Then:
+        systemctl daemon-reload
+        systemctl start myapp
+        systemctl enable myapp
+
+NETWORKING
+7. How do you check if a server has internet connectivity?
+A:    ping 8.8.8.8
+      curl google.com 
+
+8. How do you check open ports in linux?
+A:   ss -tulpn
+     netstat -tulpn
+     lsof -i
+
+9. Diff between port 80,443?
+A:80 --> HTTP --> not secure
+  443 --> HTTPS --> secure as its encrypted
+
+10. A web app is not accessible, what do you check?
+A: check service : systemctl status nginx
+   check port: ss -tulpn | grep 80
+   check firewall / security group
+   check logs: tail -f /var/logs/nginx/error.log
+
+11. What is DNS resolution issue?
+A: Ping IP works but Ping domain fails due to wrong DNS Server
+
+12. Diff between TCP and UDP?
+A: TCP --> reliable, connection-based, used in web apps
+   UDP --> fast but no guarantee, connection-less, used in streaming, gaming
+
+13. What is local host vs 0.0.0.0
+A: local host --> local machine 
+   0.0.0.0 --> all network interfaces (public access)
+
+14. Production incident: API is slow but server is working
+A: check cpu memory: free -m
+   top
+
+15. What is SSH Tunneling?
+A: used to securily access remote servers
+
+16. how do you check routing issues?
+A: ip route
+
+17. Prodiction scenario : firewall blocking traffic
+A: in aws --> check security group
+   in local machine in ufw is enabled --> ufw status --> if you want to allow any : ufw allow 80
+
+18. Website is up but users cannot access it, why?
+A: check firewall, DNS issue, check security group, load balancer misconfig, SSL expired
+
+19. Service works locally but not from browser, why?
+A: not set to 0.0.0.0
+   port not exposed
+   firewall blocking
+ 
