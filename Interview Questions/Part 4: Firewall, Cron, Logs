@@ -76,6 +76,10 @@ A:  * * * * *
     | | └────── Day of month
     | └──────── Hour
     └────────── Minute
+    Example cron job for every minute:
+      * * * * * echo "Hello" >> /tmp/test.log
+    Example cron job daily 2 am backup:
+      0 2 * * * tar -czf backup.tar /home
 
 4. Production scenario: cron job not running
 A: 
