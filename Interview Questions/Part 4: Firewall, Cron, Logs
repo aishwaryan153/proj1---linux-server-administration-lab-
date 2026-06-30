@@ -1,0 +1,106 @@
+FIREWALL
+1. What is firewall?
+A: it controls incoming and outgoing traffic 
+
+2. How to check firewall status?
+A: sudo ufw status
+
+3. How to allow, block a port in firewall?
+A: Allow --> sudo ufw allow 80
+   Block --> sudo ufw deny 443
+
+4. Application is running, but not accessible externally. How?
+A: check if service is running: systemctl status nginx
+   check firewall: sudo ufw status
+   check if port is listening: ss -tulpn
+   check security groups in cloud
+
+5. UFW Vs Security group
+A: UFW --> OS level, applies inside server, controls internal processes
+   Security group --> cloud level, applies before traffic reaches server, controls external processes
+
+6. what is the default policy in firewall?
+A: deny incoming, allow outgoing
+
+7. how do you safely reset firewall rules?
+A: sudo ufw reset
+
+------------------
+LOGS
+1. What are logs in linux?
+A: Logs are records of system activity.
+   Ex: service logs, system logs, security logs, application logs
+
+2. Where are important logs stored?
+A: /var/log
+    Ex: /var/log/nginx/access.log
+        /var/log/nginx/error.log
+        /var/log/syslog
+        /var/log/auth.log
+
+3. How do you check real time logs?
+A: tail -f /var/log/syslog
+
+4. How do you check service specified logs?
+A: journalctl -u ssh
+   journalctl -u nginx
+
+5. Production scenario: Service is failing randomly
+A: check service logs: journalctl -u nginx
+   check system logs: cat /var/log/syslog
+   check disk space: df -h
+
+6. How do you filter logs?
+A: grep ERROR /var/log/syslog
+
+7. What is log rotation?
+A: when logs grow indefinitely and can full the disk
+   handled by :logrotate
+
+8. Production issue: disk is full suddenly
+A: du -sh /var/log/*
+
+-----------------
+CRON JOBS
+1. What is cron?
+A: cron is scheduler for automating tasks
+
+2. how do you edit cron jobs?
+A: crontab -e
+
+3. explain cron format and give example
+A:  * * * * *
+    | | | | |
+    | | | | └── Day of week (0-7)
+    | | | └──── Month
+    | | └────── Day of month
+    | └──────── Hour
+    └────────── Minute
+
+4. Production scenario: cron job not running
+A: 
+
+5. Common cron mistakes in production
+A:
+
+6. How do you debug cron failures?
+A:
+
+7. Diff between cron VS systemd timer?
+A:
+
+8. Firewall blocked production traffic. How to fix?
+A:
+
+9. Logs are not generating, why?
+A:
+
+10. cron job worked yesteray but not today, why?
+A:
+
+11. User cannot access the service after deployment
+A:
+
+12. Security incident: Unknown traffic on server
+A:
+
