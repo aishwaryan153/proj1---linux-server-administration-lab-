@@ -1,0 +1,65 @@
+1. Explain linux file permissions
+A: read - r - 4
+   write - w - 2
+   execte - x - 1
+   Owner -- group -- others
+
+2. Diff between 755, 644,777
+A: 755 --> rwx--rx-rx
+   644 --> rw--r--r
+   777 --> rwx--rwx--rwx ( we never use 777 in production unless its really necessary)
+
+3. Diff between chmod,chown, chgrp
+A: chmod --> changes file permissions --> chmod 755 file_name
+   chown --> changes file owner --> chown ubuntu file.txt
+   chgrp --> changes file group --> chgrp developers file.txt
+
+4. Express symbolic and numeric permissions
+A: numeric : chmod 744 file.txt
+   symbolic: chmod u+x app.sh ( gives owner execute permission)
+             chmod g-w app.sh ( remove write permission from group)
+          u --> user/owner | g --> group | o --> others
+
+5. How do you recursively change permissions
+A: chmod -R 755 file.txt
+
+6. Diff between file and directory permissions
+A: Files:
+    read --> view contents
+    write --> modifies the file
+    execute --> run the file
+  Directories:
+    read --> list files
+    write --> create / delete files
+    execute --> enter directory (cd)
+
+7. How to create a new user, how to add a user to group
+A: to create user: sudo adduser aishu
+   to add user to group: sudo usermod -aG group1 aishu
+    verify : groups aishu ( tells aishu user is in which groups)
+
+8. How to lock and unlock a user?
+A: to immediately disable access for user we lock them, when we lock a ! is added to the password by linux so when user tries to login it shows password error so
+    they cant login
+   sudo passwd -l aishu --> lock username
+   sudo passwd -u aishu --> unlocks username
+
+9. check who is currently logged in
+A: who OR w OR last
+
+-----------------
+PRODUCTION TROUBLESHOOTING
+
+1. A user cannot edit a file, how do you troubleshoot?
+A:
+
+2. Application says permission denied
+A:
+
+3. script works manually but fails in cron
+A:
+
+4. User cannot SSH into server
+A:
+
+5. 
